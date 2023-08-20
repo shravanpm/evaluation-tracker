@@ -16,6 +16,11 @@ const questionSchema = new mongoose.Schema(
         message: 'Options array must not be empty when type is "mcq"',
       },
     },
+    invigilator: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "user",
+      required: true,
+    },
     maximumMark: { type: Number, required: true },
   },
   {
