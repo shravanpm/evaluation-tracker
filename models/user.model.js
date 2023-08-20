@@ -9,6 +9,7 @@ const userSchema = new mongoose.Schema(
     userType: {
       type: String,
       enum: ["admin", "instructor", "user"],
+      required: true,
       // default: "user",
     },
   },

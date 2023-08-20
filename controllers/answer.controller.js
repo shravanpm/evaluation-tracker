@@ -1,14 +1,13 @@
 const express = require("express");
-const Question = require("../models/question.model");
+const Answer = require("../models/answer.model");
 const authenticate = require("../middleware/authenticate");
 
 const router = express.Router();
 
 router.post("/", async (req, res) => {
-  console.log({ body: req.body });
   try {
-    const question = await Question.create(req.body).lean().exec();
-    return res.status(200).send({ question });
+    const answer = await Answer.create(req.body).lean().exec();
+    return res.status(200).send({ answer });
   } catch (err) {
     return res.status(400).send({ message: err.message, loggedIn: false });
   }
